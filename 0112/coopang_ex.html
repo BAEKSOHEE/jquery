@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠팡실습예제_attr()메서드 활용</title>
+    <style>
+        *{margin: 0px; padding: 0px;}
+        .cp1{}
+        .cp1 > nav{
+            width: 180px;
+            position: absolute;
+            z-index: 9999;
+            right: 530px; top: 35px;
+        }
+        .cp1 > nav > ul{
+            
+        }
+        .cp1 > nav> ul > li{
+            list-style: none;
+        }
+        .cp1 > nav> ul > li img{
+            width: 180px; height: 60px;
+            display: block;
+            
+        }
+        .cp1 > nav> ul > li img:hover{
+            border: 2px solid #00f;
+        }
+        .cp1 > ul > li > a{
+
+        }
+        #main_img{
+            position: relative;
+            left: 0px; top: 0;
+        }
+    </style>
+</head>
+<body>
+    <article class="cp1">
+        <nav>
+            <ul>
+                <li><a href="./images/cp01.jpg" title="닥터유"><img src="./images/mnu01.jpg" alt="닥터유"></a></li>
+                <li><a href="./images/cp02.jpg" title="뷰티 보습케어"><img src="./images/mnu02.jpg" alt="뷰티 보습케어"></a></li>
+                <li><a href="./images/cp03.jpg" title="빅세일 ~60%"><img src="./images/mnu03.jpg" alt="빅세일 ~60%"></a></li>
+                <li><a href="./images/cp04.jpg" title="메디앙스"><img src="./images/mnu04.jpg" alt="메디앙스"></a></li>
+                <li><a href="./images/cp05.jpg" title="토니모리 보습&클렌징"><img src="./images/mnu05.jpg" alt="토니모리 보습&클렌징"></a></li>
+                <li><a href="./images/cp06.jpg" title="쿠폰혜택"><img src="./images/mnu06.jpg" alt="쿠폰혜택"></a></li>
+            </ul>
+        </nav>
+        <img src="./images/cp01.jpg" alt="닥터유" id="main_img">
+    </article>
+
+    <!-- 제이쿼리 라이브러리 연결하기 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        let img_src;
+        let cp_img = $('.cp1 li a');
+
+            cp_img.mouseenter(function(){
+                img_src = $(this).attr('href');
+                console.log(img_src);
+
+                $('#main_img').attr('src', img_src);
+            });
+    });
+    </script>
+</body>
+</html>

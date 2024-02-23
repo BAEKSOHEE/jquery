@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습예제1_웹페이지 상단 배너접기_모달창띄우기_숨기기</title>
+
+    <style>
+        *{margin: 0px; padding: 0px;}
+        .banner, .wrap{
+            width: 1034px;
+            margin: 0px auto;
+        }
+
+        .modal{
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,.6);
+        position: fixed;
+        top: 0px; left: 0px;
+        color: #fff;
+        text-align: center;
+        }
+        .modal_inner{
+            position: absolute;
+            left: 50%; top: 2%;
+            transform:translate(-50%, 20%);
+
+        }
+        .modal img{width: 500px;}
+    </style>
+    <!-- 제이쿼리 라이브러리 연결하기 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- 제이쿼리 랩퍼 -->
+    <script>
+        $(document).ready(function(){
+            //닫기 버튼 변수
+            const cbtn = $('.banner #c_btn');
+
+            cbtn.click(function(){$('.banner').slideUp();
+            });
+
+            //닫기2 버튼 변수
+            const cbtn2 = $('#c_btn2');
+
+            cbtn2.click(function(){
+                $('.modal').fadeOut();
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <a href="#" title="배너"><img src="./images/main01_01.jpg" alt="배너"></a>
+        <input type="button" value="닫기" id="c_btn">
+    </div>
+    <div class="wrap">
+        <img src="./images/main01_02.jpg" alt="메인">
+    </div>
+
+    <div class="modal">
+        <div class="modal_inner">
+            <img src="./images/popup.jpg" alt="팝업">
+            <p><input type="checkbox" id="c_box">
+            <label for="c_box">오늘 하루 이 창을 열지않음&nbsp;&nbsp;&nbsp;</label>
+            <input type="button" value="닫기" id="c_btn2"></p>
+        </div>
+    </div>
+</body>
+</html>
